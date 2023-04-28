@@ -1,30 +1,5 @@
 function [ output_image,output_sparse,output_noise] = LMNTV(Y_tensor, tau,lambda, r, beta)
-% Solve problem
-% solve the following problem (TV regularized LR and MC problem)
-%  argmin   ||L||_nuclear + tao * ||X||_TV+lanbda*||S||_1
-%                       s.t. X = L D = L + S and rank(L)<=r;
-%     via IALM
-% -------------------------------------------------------------------------------------------------------------
-% Reference paper: W. He, H. Zhang, L. Zhang, and  H. Shen, ¡°Total-Variation-Regularized
-% Low-Rank Matrix Factorization for Hyperspectral Image Restoration,¡± IEEE Trans. Geosci. Remote Sens.,
-% vol. 54, pp. 178-188, Jan. 2016.
-% Author: Wei He (November, 2014)
-% E-mail addresses:(weihe1990@whu.edu.cn)
-% --------------------------------------------------INPUT-----------------------------------------------------
-%  Y_tensor                            noisy 3-D image of size M*N*p normalized to [0,1] band by band
-%  tao                                       (recommended value 0.01)
-%  lambda
-%  G1(omega)                                 all one matrix of size (M*N)*p
-%  G0(omega~)                                all zero matrix of size (M*N)*p
-%  r                                         rank constraint
-% --------------------------------------------------OUTPUT-----------------------------------------------------
-%  output_iamge                              3-D denoised image
-%  out_value                                 MPSNR and MSSIM valuses of each iteration
-% -------------------------------------------------------------------------------------------------------------
-% Note: the parameters G0 and G1 do not have any effect. these two
-% parameters are used to solve the impainting problem with the location of
-% missing pixels to be known.
-% -------------------------------------------------------------------------------------------------------------
+
 
 %% Preprocessing Data
 [M,N,p] = size(Y_tensor);
